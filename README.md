@@ -2,9 +2,9 @@
 
 **Technology to Be Better.**
 
-BeBetter Development is a technology brand founded by Vitalii Velykobrat.
+BeBetter Development is an independent technology brand founded by Vitalii Velykobrat.
 
-We build and explore technology that expands human capability.
+We build, explore and experiment with technology designed to extend human capability, remove unnecessary complexity, and help people do meaningful things better.
 
 ## Philosophy
 

@@ -92,6 +92,17 @@ export const projects: Project[] = [
 
     technologies: ["HTML", "CSS", "JavaScript"],
 
+    media: {
+  heroDesktop:
+    "/projects/mini-printer/mini-printer-hero-desktop.jpg",
+  heroMobile:
+    "/projects/mini-printer/mini-printer-hero-mobile.jpg",
+  secondaryDesktop:
+    "/projects/mini-printer/mini-printer-order-desktop.jpg",
+  secondaryMobile:
+    "/projects/mini-printer/mini-printer-order-mobile.jpg",
+},
+
     repository:
       "https://github.com/Velykobrat/mini-printer-landing",
 

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* ========================================
+   BASE
+======================================== */
+
 :root {
     --background: #f3f2ee;
     --foreground: #111111;
@@ -26,6 +30,11 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+
+/* ========================================
+   HEADER
+======================================== */
 
 .site-header {
     width: 100%;
@@ -58,6 +67,7 @@ a {
 .nav {
     display: flex;
     gap: 2rem;
+
     font-size: 0.85rem;
 }
 
@@ -68,6 +78,11 @@ a {
 .nav a:hover {
     opacity: 0.5;
 }
+
+
+/* ========================================
+   HERO
+======================================== */
 
 .hero {
     min-height: calc(100svh - 88px);
@@ -87,9 +102,8 @@ a {
 }
 
 .hero h1 {
-    margin: auto 0;
-
     max-width: 1200px;
+    margin: auto 0;
 
     font-size: clamp(4.5rem, 10.5vw, 10rem);
     font-weight: 450;
@@ -118,21 +132,27 @@ a {
     color: var(--muted);
 
     font-size: 0.75rem;
-    text-transform: uppercase;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
+
+
+/* ========================================
+   SHARED SECTIONS
+======================================== */
 
 .section-shell {
     padding: 8rem 4vw;
 }
 
 .section-heading {
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
 
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
-    border-bottom: 1px solid var(--foreground);
+    border-bottom: 1px solid var(--line);
 }
 
 .section-index {
@@ -143,105 +163,302 @@ a {
     font-size: 0.75rem;
 }
 
+
+/* ========================================
+   SELECTED WORK
+======================================== */
+
+.work {
+    padding-top: 7rem;
+    padding-bottom: 10rem;
+}
+
 .featured-projects {
     display: flex;
     flex-direction: column;
-    gap: 8rem;
-    padding-top: 5rem;
+    gap: 9rem;
+
+    margin-top: 5rem;
 }
 
 .featured-project {
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
 }
 
-.project-visual {
+
+/* ========================================
+   PROJECT SHOWCASE
+======================================== */
+
+.project-showcase {
     position: relative;
 
-    width: 100%;
-    min-height: min(68vw, 820px);
+    min-height: min(72vw, 760px);
     padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background: #111111;
+    color: #f3f2ee;
+}
+
+.project-showcase-top,
+.project-showcase-bottom {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   PLACEHOLDER PROJECTS
+======================================== */
+
+.project-showcase:not(:has(.project-media))::before,
+.project-showcase:not(:has(.project-media))::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(243, 242, 238, 0.14);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+        transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 700ms ease;
+}
+
+.project-showcase:not(:has(.project-media))::before {
+    width: min(48vw, 700px);
+    height: min(48vw, 700px);
+}
+
+.project-showcase:not(:has(.project-media))::after {
+    width: min(24vw, 360px);
+    height: min(24vw, 360px);
+}
+
+.featured-project:hover .project-showcase:not(:has(.project-media))::before {
+    transform: translate(-50%, -50%) scale(1.08);
+    border-color: rgba(243, 242, 238, 0.3);
+}
+
+.featured-project:hover .project-showcase:not(:has(.project-media))::after {
+    transform: translate(-50%, -50%) scale(0.88);
+}
+
+.project-showcase-title {
+    position: relative;
+    z-index: 2;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    text-align: center;
+}
+
+.project-showcase-title span {
+    max-width: 90%;
+
+    font-size: clamp(3.2rem, 8vw, 9rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.065em;
+
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-project:hover .project-showcase-title span {
+    transform: scale(1.025);
+}
+
+
+/* ========================================
+   REAL PROJECT MEDIA
+======================================== */
+
+.project-media {
+    position: absolute;
+    z-index: 1;
+
+    inset: 5.5rem 6% 4.75rem;
+}
+
+.project-media-primary {
+    position: absolute;
+
+    inset: 0 11% 9% 0;
+
     overflow: hidden;
 
-    background: #171717;
-    color: #f3f2ee;
+    background: #181818;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.34),
+        0 8px 24px rgba(0, 0, 0, 0.18);
+
+    transform: translate3d(0, 0, 0);
+
+    transition:
+        transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.featured-project:nth-child(2) .project-visual {
-    background: #d9d8d2;
-    color: #111111;
+.project-media-primary img {
+    object-fit: cover;
+    object-position: center;
 }
 
-.visual-number {
+.project-media-secondary {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
 
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    right: 0;
+    bottom: 0;
+
+    width: 34%;
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #f3f2ee;
+
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.42),
+        0 10px 30px rgba(0, 0, 0, 0.22);
+
+    transform: translate3d(0, 0, 0);
+
+    transition:
+        transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.visual-type {
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+.project-media-secondary img {
+    object-fit: cover;
+    object-position: top center;
 }
 
-.visual-word {
-    font-size: clamp(5rem, 15vw, 14rem);
-    font-weight: 450;
-    line-height: 0.8;
-    letter-spacing: -0.08em;
+.project-image-desktop {
+    display: block;
 }
+
+.project-image-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .project-image-desktop {
+        display: none;
+    }
+
+    .project-image-mobile {
+        display: block;
+    }
+}
+
+.featured-project:hover .project-media-primary {
+    transform: scale(1.012) translate3d(-0.4%, -0.4%, 0);
+    filter: brightness(0.94);
+}
+
+.featured-project:hover .project-media-secondary {
+    transform: translate3d(2%, -3%, 0);
+
+    box-shadow:
+        0 45px 110px rgba(0, 0, 0, 0.5),
+        0 12px 34px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ========================================
+   PROJECT INFORMATION
+======================================== */
 
 .project-info {
-    padding-top: 2rem;
-
     display: grid;
-    grid-template-columns: 45% 1fr auto;
-    gap: 2rem;
+    grid-template-columns: 1.2fr 1fr auto;
+    gap: 4rem;
     align-items: start;
 }
 
 .project-type {
-    margin: 0 0 0.8rem;
+    margin: 0;
 
     color: var(--muted);
 
     font-size: 0.72rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
 }
 
-.project-info h2 {
-    margin: 0;
+.project-title-group h2 {
+    margin: 0.6rem 0 0;
 
-    font-size: clamp(2rem, 4vw, 4rem);
-    font-weight: 450;
-    letter-spacing: -0.05em;
+    font-size: clamp(2rem, 3vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.045em;
 }
 
 .project-description {
-    max-width: 420px;
+    max-width: 34rem;
     margin: 0;
 
     color: var(--muted);
 
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    line-height: 1.55;
 }
 
 .project-arrow {
-    font-size: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    font-size: 1.35rem;
+
+    transition:
+        transform 300ms ease,
+        background 300ms ease,
+        color 300ms ease;
 }
+
+.featured-project:hover .project-arrow {
+    background: var(--foreground);
+    color: var(--background);
+
+    transform: rotate(45deg);
+}
+
+
+/* ========================================
+   MANIFESTO
+======================================== */
 
 .manifesto {
     min-height: 90vh;
@@ -274,6 +491,11 @@ a {
     line-height: 1.6;
 }
 
+
+/* ========================================
+   FOOTER
+======================================== */
+
 .footer {
     min-height: 360px;
 
@@ -294,6 +516,7 @@ a {
 
 .footer-founder {
     margin: 0;
+
     color: #8f8f8f;
 }
 
@@ -309,6 +532,11 @@ a {
 .footer-right p {
     margin: 0;
 }
+
+
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 768px) {
     .site-header {
@@ -349,51 +577,89 @@ a {
         padding: 6rem 5vw;
     }
 
-    .project {
-        min-height: auto;
-
-        grid-template-columns: 2rem 1fr auto;
-        gap: 1rem;
+    .work {
+        padding-top: 5rem;
+        padding-bottom: 7rem;
     }
 
+    .featured-projects {
+        gap: 6rem;
+        margin-top: 3rem;
+    }
+
+    .featured-project {
+        gap: 2rem;
+    }
+
+    .project-showcase {
+        min-height: 125vw;
+        padding: 1.25rem;
+    }
+
+    .project-showcase-top,
+    .project-showcase-bottom {
+        font-size: 0.68rem;
+    }
+
+    .project-showcase:not(:has(.project-media))::before {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .project-showcase:not(:has(.project-media))::after {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .project-showcase-title span {
+        max-width: 100%;
+
+        font-size: clamp(3rem, 15vw, 6rem);
+    }
+
+        .project-media {
+            inset: 5rem 1.75rem 4.75rem;
+        }
+    
+        .project-media-primary {
+            inset: 0 12% 10% 0;
+        }
+    
+        .project-media-primary img {
+            object-position: top center;
+        }
+    
+        .project-media-secondary {
+            right: -2%;
+            bottom: 2%;
+    
+            width: 42%;
+            aspect-ratio: 0.72;
+        }
+    
+        .project-media-secondary img {
+            object-position: top center;
+        }
+    
+        .project-title-group h2 {
+            font-size: clamp(1.8rem, 7vw, 2.6rem);
+        }
     .project-description {
-        grid-column: 2 / -1;
-        margin-top: 0;
+        grid-column: 1 / -1;
+
+        max-width: none;
+
+        font-size: 1rem;
     }
 
-        .featured-projects {
-            gap: 5rem;
-            padding-top: 3rem;
-        }
-    
-        .project-visual {
-            min-height: 65vh;
-            padding: 1.25rem;
-        }
-    
-        .visual-number {
-            top: 1.25rem;
-            left: 1.25rem;
-        }
-    
-        .visual-type {
-            right: 1.25rem;
-            bottom: 1.25rem;
-        }
-    
-        .visual-word {
-            font-size: clamp(4rem, 21vw, 8rem);
-        }
-    
-        .project-info {
-            grid-template-columns: 1fr auto;
-            gap: 1.5rem;
-        }
-    
-        .project-description {
-            grid-column: 1 / -1;
-        }
-        
+    .project-arrow {
+        grid-column: 2;
+        grid-row: 1;
+
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+
     .manifesto {
         min-height: 80vh;
 
@@ -415,6 +681,7 @@ a {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-end;
+
         gap: 3rem;
     }
 
@@ -423,5 +690,25 @@ a {
 
         justify-content: space-between;
         gap: 1rem;
+    }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .project-showcase::before,
+    .project-showcase::after,
+    .project-showcase-title span,
+    .project-media-primary,
+    .project-media-secondary,
+    .project-arrow {
+        transition: none;
     }
 }

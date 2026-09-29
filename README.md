@@ -28,7 +28,7 @@ Install dependencies:
 
 Run the development server:
 
-    npm run dev
+    npm.cmd run dev
 
 Open `http://localhost:3000`.
 

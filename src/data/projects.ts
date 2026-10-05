@@ -20,11 +20,13 @@ export type Project = {
   technologies: string[];
 
   media?: {
-  heroDesktop: string;
-  heroMobile: string;
-  secondaryDesktop: string;
-  secondaryMobile: string;
-};
+    heroDesktop: string;
+    heroMobile: string;
+    secondaryDesktop: string;
+    secondaryMobile: string;
+  };
+
+  gallery?: string[];
 
   repository?: string;
   liveUrl?: string;
@@ -55,15 +57,15 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Vite"],
 
     media: {
-  heroDesktop:
-    "/projects/photographer/photographer-hero-desktop.jpg",
-  heroMobile:
-    "/projects/photographer/photographer-hero-mobile.jpg",
-  secondaryDesktop:
-    "/projects/photographer/photographer-portfolio-desktop.jpg",
-  secondaryMobile:
-    "/projects/photographer/photographer-portfolio-mobile.jpg",
-},
+      heroDesktop:
+        "/projects/photographer/photographer-hero-desktop.jpg",
+      heroMobile:
+        "/projects/photographer/photographer-hero-mobile.jpg",
+      secondaryDesktop:
+        "/projects/photographer/photographer-portfolio-desktop.jpg",
+      secondaryMobile:
+        "/projects/photographer/photographer-portfolio-mobile.jpg",
+    },
 
     repository:
       "https://github.com/Velykobrat/photographer-portfolio",
@@ -93,15 +95,15 @@ export const projects: Project[] = [
     technologies: ["HTML", "CSS", "JavaScript"],
 
     media: {
-  heroDesktop:
-    "/projects/mini-printer/mini-printer-hero-desktop.jpg",
-  heroMobile:
-    "/projects/mini-printer/mini-printer-hero-mobile.jpg",
-  secondaryDesktop:
-    "/projects/mini-printer/mini-printer-order-desktop.jpg",
-  secondaryMobile:
-    "/projects/mini-printer/mini-printer-order-mobile.jpg",
-},
+      heroDesktop:
+        "/projects/mini-printer/mini-printer-hero-desktop.jpg",
+      heroMobile:
+        "/projects/mini-printer/mini-printer-hero-mobile.jpg",
+      secondaryDesktop:
+        "/projects/mini-printer/mini-printer-order-desktop.jpg",
+      secondaryMobile:
+        "/projects/mini-printer/mini-printer-order-mobile.jpg",
+    },
 
     repository:
       "https://github.com/Velykobrat/mini-printer-landing",
@@ -141,26 +143,37 @@ export const projects: Project[] = [
     number: "04",
 
     title: "Sweet Pop",
-    category: "Commercial Development",
-    year: 2026,
+    category: "Team Frontend Project",
+    year: 2024,
 
-    group: "commercial",
+    group: "featured",
     status: "live",
 
     shortDescription:
-      "A commercial frontend implementation created from a provided design.",
+      "A responsive promotional website for a mobile puzzle game, developed as part of a team project from a provided design.",
 
     description:
-      "A commercial web project focused on translating an existing visual design into a responsive and functional frontend experience.",
+      "A team frontend project built from a provided design for the Sweet Pop mobile puzzle game. My contribution included the Home and Gallery sections, responsive layouts, mobile and desktop styling, asset integration, accessibility improvements and final UI polish.",
 
     role: "Frontend Development",
 
-    technologies: ["HTML", "CSS", "JavaScript"],
+    technologies: ["HTML", "SCSS", "JavaScript", "Vite"],
+
+    gallery: [
+      "/projects/sweet-pop/sweet-pop-01.png",
+      "/projects/sweet-pop/sweet-pop-02.png",
+      "/projects/sweet-pop/sweet-pop-03.png",
+      "/projects/sweet-pop/sweet-pop-04.png",
+      "/projects/sweet-pop/sweet-pop-05.png",
+    ],
 
     repository:
       "https://github.com/Velykobrat/Sweet-Pop",
 
-    featured: false,
+    liveUrl:
+      "https://velykobrat.github.io/Sweet-Pop/",
+
+    featured: true,
   },
 
   {

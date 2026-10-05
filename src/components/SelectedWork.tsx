@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { featuredProjects } from "@/data/projects";
+import { ProjectCarousel } from "@/components/ProjectCarousel";
 
 export function SelectedWork() {
   return (
@@ -16,13 +17,24 @@ export function SelectedWork() {
       <div className="featured-projects">
         {featuredProjects.map((project, index) => (
           <article className="featured-project" key={project.slug}>
-            <div className="project-showcase">
+            <div
+              className={`project-showcase ${
+                project.gallery
+                  ? "project-showcase--gallery"
+                  : ""
+              }`}
+            >
               <div className="project-showcase-top">
                 <span>{project.number}</span>
                 <span>{project.category}</span>
               </div>
 
-              {project.media ? (
+              {project.gallery ? (
+                <ProjectCarousel
+                  images={project.gallery}
+                  title={project.title}
+                />
+              ) : project.media ? (
                 <div className="project-media">
                   <div className="project-media-primary">
                     <Image
@@ -47,7 +59,7 @@ export function SelectedWork() {
                     <Image
                       className="project-image-desktop"
                       src={project.media.secondaryDesktop}
-                      alt={`${project.title} portfolio`}
+                      alt={`${project.title} secondary view`}
                       fill
                       sizes="(max-width: 768px) 1px, 34vw"
                     />
@@ -55,7 +67,7 @@ export function SelectedWork() {
                     <Image
                       className="project-image-mobile"
                       src={project.media.secondaryMobile}
-                      alt={`${project.title} portfolio`}
+                      alt={`${project.title} secondary view`}
                       fill
                       sizes="(max-width: 768px) 42vw, 1px"
                     />
@@ -80,11 +92,45 @@ export function SelectedWork() {
                 </p>
 
                 <h2>{project.title}</h2>
+
+                <p className="project-role">
+                  {project.role}
+                </p>
               </div>
 
-              <p className="project-description">
-                {project.shortDescription}
-              </p>
+              <div className="project-description-group">
+                <p className="project-description">
+                  {project.shortDescription}
+                </p>
+
+                <p className="project-technologies">
+                  {project.technologies.join(" · ")}
+                </p>
+
+                {(project.liveUrl || project.repository) && (
+                  <div className="project-links">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        View live site ↗
+                      </a>
+                    )}
+
+                    {project.repository && (
+                      <a
+                        href={project.repository}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        GitHub ↗
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
 
               <span className="project-arrow" aria-hidden="true">
                 ↗

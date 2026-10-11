@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { pageMetadata, siteDescription, siteUrl } from "@/lib/site";
 import "./globals.css";
+import "../styles/studio.css";
+import "../styles/about.css";
+import "../styles/lab.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BeBetter Development",
-  description:
-    "Technology to Be Better. Building and exploring technology that expands human capability.",
+  ...pageMetadata("BeBetter Development — Technology to Be Better", siteDescription, "/"),
+  metadataBase: siteUrl,
 };
 
 export default function RootLayout({
@@ -24,9 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="uk">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <a className="skip-link" href="#main-content">Перейти до вмісту</a>
         {children}
+        <Analytics />
       </body>
     </html>
   );

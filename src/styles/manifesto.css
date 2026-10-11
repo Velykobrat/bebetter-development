@@ -1,0 +1,41 @@
+.manifesto {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+.manifesto-text {
+    margin: 0;
+    align-self: center;
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 450;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+}
+
+.manifesto-copy {
+    grid-column: 2;
+    width: min(500px, 100%);
+    margin: 4rem 0 0 auto;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+
+    .manifesto {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .manifesto-text {
+        margin-top: auto;
+    }
+
+    .manifesto-copy {
+        margin-top: 3rem;
+    }
+}

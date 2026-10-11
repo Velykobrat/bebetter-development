@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-import { featuredProjects } from "@/data/projects";
+import { featuredProjects, projectAuthorshipLabels, projectStatusLabels } from "@/data/projects";
 import { ProjectCarousel } from "@/components/ProjectCarousel";
 
 export function SelectedWork() {
@@ -10,12 +11,12 @@ export function SelectedWork() {
         <p className="eyebrow">Selected work</p>
 
         <p className="section-index">
-          01 — {String(featuredProjects.length).padStart(2, "0")}
+          <Link href="/work">Усі проєкти ↗</Link> · 01 — {String(featuredProjects.length).padStart(2, "0")}
         </p>
       </div>
 
       <div className="featured-projects">
-        {featuredProjects.map((project, index) => (
+        {featuredProjects.map((project) => (
           <article className="featured-project" key={project.slug}>
             <div
               className={`project-showcase ${
@@ -43,7 +44,6 @@ export function SelectedWork() {
                       alt={`${project.title} homepage`}
                       fill
                       sizes="(max-width: 768px) 1px, 82vw"
-                      priority={index === 0}
                     />
 
                     <Image
@@ -81,7 +81,7 @@ export function SelectedWork() {
 
               <div className="project-showcase-bottom">
                 <span>{project.year}</span>
-                <span>{project.status}</span>
+                <span>{projectStatusLabels[project.status]}</span>
               </div>
             </div>
 
@@ -91,10 +91,10 @@ export function SelectedWork() {
                   {project.category} · {project.year}
                 </p>
 
-                <h2>{project.title}</h2>
+                <h2 lang={project.titleLanguage ?? "en"}>{project.title}</h2>
 
                 <p className="project-role">
-                  {project.role}
+                  {projectAuthorshipLabels[project.authorship]} · {project.role}
                 </p>
               </div>
 
@@ -102,20 +102,22 @@ export function SelectedWork() {
                 <p className="project-description">
                   {project.shortDescription}
                 </p>
+                {project.contribution && <p className="project-contribution">Внесок: {project.contribution}</p>}
 
                 <p className="project-technologies">
                   {project.technologies.join(" · ")}
                 </p>
 
-                {(project.liveUrl || project.repository) && (
+                {(project.caseStudy || project.liveUrl || project.repository) && (
                   <div className="project-links">
+                    {project.caseStudy && <Link href={`/work/${project.slug}`}>Переглянути кейс ↗</Link>}
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        View live site ↗
+                        Відкрити сайт ↗
                       </a>
                     )}
 

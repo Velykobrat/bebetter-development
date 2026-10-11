@@ -1,17 +1,18 @@
 export function Manifesto() {
   return (
-    <section className="manifesto section-shell" id="lab">
-      <p className="eyebrow">Our idea</p>
+    <section className="manifesto section-shell" id="approach" aria-labelledby="approach-title">
+      <p className="eyebrow" lang="en">Our approach</p>
 
-      <p className="manifesto-text">
+      <h2 className="manifesto-text" id="approach-title" lang="en">
         We develop technology.
         <br />
         Technology develops us.
-      </p>
+      </h2>
 
       <p className="manifesto-copy">
-        Technology should not exist for its own sake. It should remove friction,
-        extend human capability and help us do meaningful things better.
+        Технології мають спрощувати роботу, розширювати можливості людей
+        та допомагати робити важливі речі краще. Кожен проєкт — це готове
+        рішення для користувача й наступний крок у розвитку наших можливостей.
       </p>
     </section>
   );

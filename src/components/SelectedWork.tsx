@@ -134,9 +134,15 @@ export function SelectedWork() {
                 )}
               </div>
 
-              <span className="project-arrow" aria-hidden="true">
-                ↗
-              </span>
+              {project.caseStudy ? (
+                <Link className="project-arrow" href={`/work/${project.slug}`} aria-label={`Переглянути кейс: ${project.title}`}>
+                  <span aria-hidden="true">↗</span>
+                </Link>
+              ) : (project.liveUrl || project.repository) ? (
+                <a className="project-arrow" href={project.liveUrl ?? project.repository} target="_blank" rel="noreferrer" aria-label={`${project.liveUrl ? "Відкрити сайт" : "Переглянути вихідний код"}: ${project.title}`}>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ) : null}
             </div>
           </article>
         ))}
@@ -144,3 +150,4 @@ export function SelectedWork() {
     </section>
   );
 }
+

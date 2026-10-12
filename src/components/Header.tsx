@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { projectImage } from "@/lib/project-images";
 
 export function Header() {
   return (
     <header className="site-header">
       <Link className="brand" href="/#top" aria-label="BeBetter Development home">
         <Image
-          src="/brand/logo-icon.svg"
+          src={projectImage("/brand/logo-icon.svg")}
           alt=""
           width={34}
           height={34}

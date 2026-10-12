@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { projects, projectAuthorshipLabels, projectStatusLabels } from "@/data/projects";
+import { projects, projectAuthorshipLabels, getProjectStatusLabel } from "@/data/projects";
 import "@/styles/case.css";
 import { pageMetadata } from "@/lib/site";
 
@@ -26,7 +26,7 @@ export default function WorkPage() {
               <h2 lang={project.titleLanguage ?? "en"}>{project.title}</h2>
             </div>
             <div>
-              <p>{projectAuthorshipLabels[project.authorship]} · {projectStatusLabels[project.status]}</p>
+              <p>{projectAuthorshipLabels[project.authorship]} · {getProjectStatusLabel(project)}</p>
               <p className="case-stack" lang="en">{project.category} · {project.role}</p>
               <p className="case-stack" lang={project.shortDescriptionLanguage}>{project.shortDescription}</p>
               {project.contribution && <p className="case-stack">Внесок: {project.contribution}</p>}

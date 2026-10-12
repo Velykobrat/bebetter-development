@@ -1,0 +1,37 @@
+[
+  {
+    "src": "/projects/hundred/hundred-home-desktop.webp",
+    "label": "Створення ресурсу — десктоп",
+    "mobile": false,
+    "width": 1920,
+    "height": 1010
+  },
+  {
+    "src": "/projects/hundred/hundred-create-resource-mobile.webp",
+    "label": "Створення ресурсу — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1055
+  },
+  {
+    "src": "/projects/hundred/hundred-resource-map-mobile.webp",
+    "label": "Карта місячного бюджету — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1140
+  },
+  {
+    "src": "/projects/hundred/hundred-nested-resource-mobile.webp",
+    "label": "Вкладений розподіл оренди — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1140
+  },
+  {
+    "src": "/projects/hundred/hundred-resource-parts-mobile.webp",
+    "label": "Редагування частин — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1140
+  }
+]

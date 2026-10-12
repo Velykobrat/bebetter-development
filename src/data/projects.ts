@@ -1,3 +1,6 @@
+import photographerScreens from "./photographer-screens.json";
+import hundredScreens from "./hundred-screens.json";
+
 export type ProjectGroup = "featured" | "commercial" | "lab";
 
 export type ProjectStatus = "live" | "development";
@@ -10,7 +13,7 @@ export const projectStatusLabels: Record<ProjectStatus, string> = {
 };
 
 export const projectAuthorshipLabels: Record<ProjectAuthorship, string> = {
-  independent: "Самостійна робота",
+  independent: "Авторський проєкт",
   team: "Командна робота",
   commercial: "Комерційна frontend-розробка",
 };
@@ -20,6 +23,7 @@ export type ProjectCase = {
   approach: string;
   scope: string[];
   currentState: string;
+  technologyNotes?: string;
 };
 
 export type Project = {
@@ -35,8 +39,11 @@ export type Project = {
 
   group: ProjectGroup;
   status: ProjectStatus;
+  version?: string;
 
   shortDescription: string;
+  cardDescription?: string;
+  cardContribution?: string;
   shortDescriptionLanguage: "uk" | "en";
   description: string;
 
@@ -51,6 +58,8 @@ export type Project = {
   };
 
   gallery?: string[];
+  cover?: string;
+  caseScreens?: { src: string; label: string; mobile: boolean; width: number; height: number }[];
 
   repository?: string;
   liveUrl?: string;
@@ -66,44 +75,48 @@ export const projects: Project[] = [
     number: "01",
 
     title: "Photographer Portfolio",
+    cardDescription: "Двомовний сайт фотографа: серії робіт, журнал і форма звернення.",
     category: "Business Website",
     authorship: "independent",
     year: 2026,
 
     group: "featured",
-    status: "development",
+    status: "live",
+    version: "1.3.0",
 
-    shortDescriptionLanguage: "en",
+    shortDescriptionLanguage: "uk",
     shortDescription:
-      "A digital presence for a professional photographer, built to present the brand, expertise and work while turning visitors into enquiries.",
+      "Завершений двомовний сайт фотографа: портфоліо з категоріями та серіями робіт, повноекранний перегляд фотографій, журнал і форма звернення.",
 
     description:
-      "A complete business website designed around the identity and work of a professional photographer. The experience combines portfolio presentation, services, expertise and lead generation in a focused editorial interface.",
+      "Цифровий простір фотографа, у якому роботи, авторський голос і звернення клієнта утворюють єдиний досвід. Сайт поєднує українську та англійську версії, портфоліо, журнал і керування контентом через Sanity.",
 
     role: "Design & Development",
 
-    technologies: ["React", "TypeScript", "Vite"],
+    technologies: ["React", "TypeScript", "Vite", "Sanity"],
 
     media: {
       heroDesktop:
-        "/projects/photographer/photographer-hero-desktop.jpg",
+        "/projects/photographer/updated/photographer-home-desktop.webp",
       heroMobile:
-        "/projects/photographer/photographer-hero-mobile.jpg",
+        "/projects/photographer/updated/photographer-home-mobile-uk.webp",
       secondaryDesktop:
-        "/projects/photographer/photographer-portfolio-desktop.jpg",
+        "/projects/photographer/updated/photographer-portfolio-desktop.webp",
       secondaryMobile:
-        "/projects/photographer/photographer-portfolio-mobile.jpg",
+        "/projects/photographer/updated/photographer-portfolio-mobile.webp",
     },
+    caseScreens: photographerScreens,
 
     repository:
       "https://github.com/Velykobrat/photographer-portfolio",
 
     featured: true,
     caseStudy: {
-      task: "Представити фотографа, його роботи та послуги в одному цифровому просторі. Структура має допомогти відвідувачу познайомитися з автором і перейти від перегляду портфоліо до звернення.",
-      approach: "Редакційна подача з акцентом на фотографіях. Головна знайомить із брендом, а портфоліо дає роботам власний простір. Десктопний і мобільний вигляди зберігають спільну візуальну ідею.",
-      scope: ["Дизайн та frontend-розробка", "Презентація фотографа й послуг", "Візуальне портфоліо", "Адаптивні макети для телефону й комп’ютера"],
-      currentState: "Проєкт у розробці. Нижче показано поточний інтерфейс; вихідний код доступний на GitHub. Публічна live-демонстрація ще не додана.",
+      task: "Створити цифровий простір фотографа, де головну роль відіграють його роботи. Від першого враження на головній до перегляду окремої серії та звернення — сайт допомагає познайомитися з автором і обрати формат зйомки.",
+      approach: "Редакційна подача: великі фотографії, виразна типографіка та стримана навігація. Портфоліо організовано за категоріями й серіями, а повноекранний перегляд дає змогу зосередитися на роботах. Журнал розкриває авторський погляд, форма збирає деталі майбутньої зйомки. Українська й англійська версії адаптовані до комп’ютера та телефона.",
+      scope: ["Українська та англійська версії", "Портфоліо з категоріями та окремими серіями", "Повноекранний перегляд фотографій із перемиканням кадрів", "Журнал з історіями та інтерв’ю", "Форма звернення з типом зйомки, датою, місцем і описом ідеї", "Керування серіями фотографій через Sanity", "Адаптивний інтерфейс для комп’ютера та телефона"],
+      currentState: "Завершена версія сайту — 1.3.0. Кейс показує готовий інтерфейс і основні сценарії: знайомство з фотографом, перегляд портфоліо та журналу, підготовка звернення. Скриншоти демонструють десктопну й мобільну версії та керування серіями в Sanity.",
+      technologyNotes: "React формує компоненти інтерфейсу, TypeScript додає перевірку типів, Vite використовується для розробки та збірки. Sanity забезпечує керування контентом серій фотографій через окремий редактор.",
     },
   },
 
@@ -112,6 +125,7 @@ export const projects: Project[] = [
     number: "02",
 
     title: "Односторінковий інтернет-магазин",
+    cardDescription: "Презентація мініпринтера зі зрозумілим переходом до замовлення.",
     titleLanguage: "uk",
     category: "Product Landing",
     authorship: "independent",
@@ -195,6 +209,7 @@ export const projects: Project[] = [
     number: "04",
 
     title: "Sweet Pop",
+    cardDescription: "Адаптивна верстка з окремими стилями для телефона й комп’ютера. SCSS допомагає організувати оформлення, а графічні ресурси передають яскраву стилістику гри. Галерея на JavaScript дає змогу переглядати ігрові екрани та перемикати зображення. Інтерфейс реалізовано за макетом дизайнера з увагою до композиції й доступності. Для розробки та збірки використано Vite.",
     category: "Promotional Website",
     authorship: "team",
     contribution: "Home і Gallery: адаптивні макети, мобільні та десктопні стилі, інтеграція ресурсів, покращення доступності й фінальне оформлення інтерфейсу. Дизайн надано команді.",
@@ -203,16 +218,17 @@ export const projects: Project[] = [
     group: "featured",
     status: "live",
 
-    shortDescriptionLanguage: "en",
+    shortDescriptionLanguage: "uk",
     shortDescription:
-      "A responsive promotional website for a mobile puzzle game, developed as part of a team project from a provided design.",
+      "Адаптивний промосайт мобільної гри Sweet Pop, реалізований командою за готовим макетом дизайнера. Власний внесок — frontend секцій Home і Gallery.",
 
     description:
-      "A team frontend project built from a provided design for the Sweet Pop mobile puzzle game. My contribution included the Home and Gallery sections, responsive layouts, mobile and desktop styling, asset integration, accessibility improvements and final UI polish.",
+      "Командна робота з реалізації дизайнерського макета у вебінтерфейсі. Власний внесок охоплює Home і Gallery: розмітку, адаптивні стилі, інтеграцію графічних ресурсів і фінальне оформлення. Авторство дизайну належить дизайнеру.",
 
     role: "Frontend Development",
 
     technologies: ["HTML", "SCSS", "JavaScript", "Vite"],
+    cover: "/projects/sweet-pop/updated/sweet-pop-cover-desktop.webp",
 
     gallery: [
       "/projects/sweet-pop/sweet-pop-01.png",
@@ -299,9 +315,18 @@ export const projects: Project[] = [
     shortDescriptionLanguage: "uk",
     shortDescription: "Візуальний інструмент для розподілу обмежених ресурсів: бюджету, часу або простору.",
     description: "Hundred показує ресурс як ціле, частини та доступний залишок. Будь-яку частину можна деталізувати; дані зберігаються локально в браузері.",
-    labDescription: "Візуальна система розподілу ресурсів. Розкладіть бюджет, час чи простір на частини та деталізуйте кожну з них. Дані зберігаються у вашому браузері, без облікового запису й синхронізації між пристроями.",
+    labDescription: "Побачте ресурс як ціле: розподіліть бюджет, час чи простір на частини та відкривайте кожну для деталізації. Візуальна карта показує пропорції й доступний залишок. Дані зберігаються у вашому браузері, без облікового запису й синхронізації між пристроями.",
     role: "Product Design & Development", technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     repository: "https://github.com/Velykobrat/hundred", liveUrl: "https://hundred-pearl-ten.vercel.app",
+    cover: "/projects/hundred/hundred-home-desktop.webp",
+    caseScreens: hundredScreens,
+    caseStudy: {
+      task: "Допомогти побачити обмежений ресурс як ціле та зрозуміти місце кожної частини. Hundred працює з бюджетом, часом, площею чи іншою вимірюваною величиною: користувач задає обсяг і одиницю, а потім розподіляє ресурс відповідно до власних потреб.",
+      approach: "Інтерфейс поєднує числові значення з візуальною картою: площа кожного блока відображає його частку ресурсу. Будь-яку частину можна відкрити як окреме ціле й деталізувати далі. Показники розподілу та вільного залишку допомагають оцінити стан на кожному рівні.",
+      scope: ["Створення ресурсу з назвою, обсягом та одиницею виміру", "Візуальна карта частин із пропорціями та відсотками", "Вкладений розподіл: деталізація кожної частини", "Додавання, редагування та видалення частин", "Відображення розподіленого обсягу та вільного залишку", "Локальне збереження даних у браузері", "Адаптивний інтерфейс для комп’ютера й телефона"],
+      currentState: "Hundred опубліковано як власний продукт Lab. Скриншоти показують створення ресурсу, розподіл місячного бюджету та деталізацію оренди. Дані зберігаються на поточному пристрої в браузері; облікові записи й синхронізація між пристроями не передбачені.",
+      technologyNotes: "Next.js і React формують застосунок та компоненти інтерфейсу. TypeScript використано для типізації даних, Tailwind CSS — для адаптивного оформлення. Локальне збереження дозволяє працювати без облікового запису.",
+    },
   },
   {
     slug: "bemora", number: "08", title: "BeMora", category: "Android Application",
@@ -329,4 +354,8 @@ export const caseProjects = projects.filter((project) => project.caseStudy);
 
 export function getCaseProject(slug: string) {
   return caseProjects.find((project) => project.slug === slug);
+}
+
+export function getProjectStatusLabel(project: Project): string {
+  return project.version ? `Версія ${project.version}` : projectStatusLabels[project.status];
 }

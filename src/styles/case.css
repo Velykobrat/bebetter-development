@@ -1,4 +1,15 @@
 .case-page { padding-top: 3rem; }
+.case-cover { margin: 0 0 3rem; padding: clamp(1rem, 3vw, 3rem); background: #27204f; color: #f3f2ee; }
+.case-cover figcaption { margin-top: 1rem; font-size: .8rem; }
+.case-cover--hundred { background: #101215; }
+.case-intro { max-width: 62rem; margin-block: 3rem 4rem; }
+.case-intro > p:last-child { margin: 1rem 0 0; font-size: clamp(1.35rem, 2.8vw, 2.6rem); line-height: 1.4; letter-spacing: -.025em; }
+.case-hero { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); align-items: center; gap: 2rem; margin: 0 0 3rem; padding: clamp(1rem, 4vw, 4rem); background: #e5e2dc; }
+.case-hero figure { margin: 0; min-width: 0; }
+.case-hero-image { position: relative; aspect-ratio: 16 / 10; }
+.case-hero-mobile .case-hero-image { aspect-ratio: 9 / 16; }
+.case-hero-image img { object-fit: contain; }
+.case-hero figcaption { margin-top: 1rem; font-size: .8rem; color: var(--muted); }
 .case-back { font-size: 0.85rem; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
 .case-header { margin: 4rem 0; }
 .case-header h1 { max-width: 100%; margin: 2rem 0 3rem; font-size: clamp(3rem, 8vw, 8rem); font-weight: 450; line-height: 1; letter-spacing: -0.06em; overflow-wrap: anywhere; }
@@ -10,18 +21,22 @@
 .case-section p { max-width: 48rem; margin: 0; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
 .case-section ul { padding-left: 1.25rem; margin: 1.5rem 0 0; line-height: 1.8; }
 .case-gallery-heading { margin: 2rem 0; }
-.case-gallery { display: grid; grid-template-columns: 2fr 1fr; align-items: start; gap: 2rem; }
+.case-gallery { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); align-items: center; gap: 3rem; padding: clamp(1rem, 3vw, 3rem); background: #e5e2dc; }
 .case-screen { margin: 0; min-width: 0; }
 .case-screen-image { position: relative; aspect-ratio: 16 / 10; background: #e6e5e1; }
 .case-screen-mobile .case-screen-image { aspect-ratio: 9 / 16; }
 .case-screen-image img { object-fit: contain; }
 .case-screen figcaption { margin-top: 0.75rem; color: var(--muted); font-size: 0.8rem; }
+.case-gallery--screens { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+.case-gallery--screens .case-screen:not(.case-screen-mobile) { grid-column: 1 / -1; }
 .case-section .case-stack { margin-top: 1.5rem; font-size: 0.9rem; }
 .case-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
 .case-links a { padding: 0.9rem 1rem; border: 1px solid var(--line); }
 .case-next { display: flex; flex-wrap: wrap; gap: 1.5rem; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid var(--line); font-size: 1.25rem; }
 .case-page a:focus-visible { outline: 2px solid var(--foreground); outline-offset: 5px; }
 @media (max-width: 768px) {
+    .case-hero { grid-template-columns: 1fr; }
+    .case-hero-mobile { width: min(100%, 320px); justify-self: center; }
     .case-header h1 { font-size: clamp(2rem, 8vw, 3.5rem); hyphens: auto; }
     .case-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .case-section { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 0; }

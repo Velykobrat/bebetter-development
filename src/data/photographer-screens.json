@@ -1,0 +1,72 @@
+[
+  {
+    "src": "/projects/photographer/updated/photographer-home-desktop.webp",
+    "label": "Головна — десктоп",
+    "mobile": false,
+    "width": 2559,
+    "height": 1339
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-portfolio-desktop.webp",
+    "label": "Вибрані роботи — десктоп",
+    "mobile": false,
+    "width": 2536,
+    "height": 1341
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-home-mobile-uk.webp",
+    "label": "Головна українською — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1055
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-home-mobile-en.webp",
+    "label": "Головна англійською — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1055
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-portfolio-mobile.webp",
+    "label": "Портфоліо — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1055
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-photo-series-mobile.webp",
+    "label": "Серія фотографій — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1140
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-lightbox-mobile.webp",
+    "label": "Перегляд фотографії — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1140
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-contact-mobile.webp",
+    "label": "Форма звернення — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1140
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-journal-mobile.webp",
+    "label": "Журнал — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 1055
+  },
+  {
+    "src": "/projects/photographer/updated/photographer-sanity-mobile.webp",
+    "label": "Керування серіями в Sanity — телефон",
+    "mobile": true,
+    "width": 591,
+    "height": 861
+  }
+]

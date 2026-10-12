@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test:smoke": "node scripts/smoke.mjs",
+    "images:upload": "node scripts/cloudinary-upload.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

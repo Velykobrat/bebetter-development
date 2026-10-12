@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { labProjects, projectStatusLabels } from "@/data/projects";
+import { labProjects, getProjectStatusLabel } from "@/data/projects";
 
 export function Lab() {
   return (
@@ -15,7 +15,7 @@ export function Lab() {
       </div>
       {labProjects.map((project) => <article className="lab-project" key={project.slug}>
         <div>
-          <p className="eyebrow">{projectStatusLabels[project.status]}</p>
+          <p className="eyebrow">{getProjectStatusLabel(project)}</p>
           <h3 lang="en">{project.title}</h3>
         </div>
         <div>

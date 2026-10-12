@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { pageMetadata, siteDescription, siteUrl } from "@/lib/site";
 import "./globals.css";
@@ -12,10 +12,6 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   ...pageMetadata("BeBetter Development — Technology to Be Better", siteDescription, "/"),
@@ -29,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={geistSans.variable}>
         <a className="skip-link" href="#main-content">Перейти до вмісту</a>
         {children}
         <Analytics />

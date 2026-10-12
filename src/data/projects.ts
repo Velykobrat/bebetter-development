@@ -37,6 +37,7 @@ export type Project = {
   status: ProjectStatus;
 
   shortDescription: string;
+  shortDescriptionLanguage: "uk" | "en";
   description: string;
 
   role: string;
@@ -72,6 +73,7 @@ export const projects: Project[] = [
     group: "featured",
     status: "development",
 
+    shortDescriptionLanguage: "en",
     shortDescription:
       "A digital presence for a professional photographer, built to present the brand, expertise and work while turning visitors into enquiries.",
 
@@ -118,6 +120,7 @@ export const projects: Project[] = [
     group: "featured",
     status: "development",
 
+    shortDescriptionLanguage: "en",
     shortDescription:
       "A conversion-focused landing page designed to turn product interest into customer enquiries.",
 
@@ -164,6 +167,7 @@ export const projects: Project[] = [
     group: "lab",
     status: "development",
 
+    shortDescriptionLanguage: "en",
     shortDescription:
       "An interactive chess experience built as the foundation for a standalone digital product.",
 
@@ -199,6 +203,7 @@ export const projects: Project[] = [
     group: "featured",
     status: "live",
 
+    shortDescriptionLanguage: "en",
     shortDescription:
       "A responsive promotional website for a mobile puzzle game, developed as part of a team project from a provided design.",
 
@@ -239,6 +244,7 @@ export const projects: Project[] = [
     group: "commercial",
     status: "live",
 
+    shortDescriptionLanguage: "en",
     shortDescription:
       "A commercial frontend project developed from a designer-provided layout.",
 
@@ -268,6 +274,7 @@ export const projects: Project[] = [
     group: "commercial",
     status: "live",
 
+    shortDescriptionLanguage: "en",
     shortDescription:
       "A collaborative frontend project developed as part of a team from a provided design.",
 
@@ -289,6 +296,7 @@ export const projects: Project[] = [
   {
     slug: "hundred", number: "07", title: "Hundred", category: "Web Application",
     authorship: "independent", year: 2026, group: "lab", status: "live", featured: false,
+    shortDescriptionLanguage: "uk",
     shortDescription: "Візуальний інструмент для розподілу обмежених ресурсів: бюджету, часу або простору.",
     description: "Hundred показує ресурс як ціле, частини та доступний залишок. Будь-яку частину можна деталізувати; дані зберігаються локально в браузері.",
     labDescription: "Візуальна система розподілу ресурсів. Розкладіть бюджет, час чи простір на частини та деталізуйте кожну з них. Дані зберігаються у вашому браузері, без облікового запису й синхронізації між пристроями.",
@@ -298,6 +306,7 @@ export const projects: Project[] = [
   {
     slug: "bemora", number: "08", title: "BeMora", category: "Android Application",
     authorship: "independent", year: 2026, group: "lab", status: "development", featured: false,
+    shortDescriptionLanguage: "uk",
     shortDescription: "Android-застосунок для пошуку та обліку фільмів, книг та ігор.",
     description: "Власна бібліотека фільмів, книг та ігор із пошуком у каталогах TMDB, Open Library і RAWG та статусами перегляду, читання й проходження.",
     labDescription: "Android-застосунок для фільмів, книг та ігор. Пошук у каталогах, власна бібліотека й статуси: заплановано, у процесі, завершено або відкладено. Розроблено на Kotlin і Jetpack Compose.",

@@ -282,6 +282,16 @@
         gap: 2rem;
     }
 
+    .project-info {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1.5rem 1rem;
+    }
+
+    .project-title-group {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
     .project-showcase {
         min-height: 125vw;
         padding: 1.25rem;

@@ -99,7 +99,7 @@ export function SelectedWork() {
               </div>
 
               <div className="project-description-group">
-                <p className="project-description">
+                <p className="project-description" lang={project.shortDescriptionLanguage}>
                   {project.shortDescription}
                 </p>
                 {project.contribution && <p className="project-contribution">Внесок: {project.contribution}</p>}

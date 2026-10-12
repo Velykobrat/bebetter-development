@@ -28,7 +28,7 @@ export default function WorkPage() {
             <div>
               <p>{projectAuthorshipLabels[project.authorship]} · {projectStatusLabels[project.status]}</p>
               <p className="case-stack" lang="en">{project.category} · {project.role}</p>
-              <p className="case-stack" lang="en">{project.shortDescription}</p>
+              <p className="case-stack" lang={project.shortDescriptionLanguage}>{project.shortDescription}</p>
               {project.contribution && <p className="case-stack">Внесок: {project.contribution}</p>}
               <p className="case-stack">{project.technologies.join(" · ")}</p>
               <div className="case-links">
